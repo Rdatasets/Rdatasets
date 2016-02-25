@@ -48,9 +48,11 @@ for (i in 1:nrow(index)) {
                             web = 'https://stat.ethz.ch/R-manual/R-devel/library/datasets/'))
 
         datapackage_init(df = d, meta = meta_list)
+
         setwd('..')
-        src_doc = paste('doc/', package, '/rst/', dataset, '.rst', sep='')
-        dest_doc = paste('dpkg/', dataset, '/README.rst', sep='')
+        doc_format = 'md'
+        src_doc = paste('doc/', package, '/', doc_format, '/', dataset, '.', doc_format, sep='')
+        dest_doc = paste('dpkg/', dataset, '/README.', doc_format, sep='')
         file.copy(src_doc, dest_doc)
 
 
